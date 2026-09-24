@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Галерея портфолио</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Портфолио</h2>
+        
+        
+        <div class="btn-group mb-4 d-flex justify-content-center">
+            <button class="btn btn-outline-primary active" onclick="filterGallery('all', this)">Все</button>
+            <button class="btn btn-outline-primary" onclick="filterGallery('web', this)">Веб-дизайн</button>
+            <button class="btn btn-outline-primary" onclick="filterGallery('photo', this)">Фотография</button>
+            <button class="btn btn-outline-primary" onclick="filterGallery('graphic', this)">Графика</button>
+        </div>
+
+        
+        <div class="row g-3" id="gallery">
+            
+            <div class="col-6 col-md-4 gallery-item" data-category="web">
+                <div class="card h-100">
+                    <img src="https://placeholder.apptor.studio/400/300/website.png" class="card-img-top" alt="Web">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-0">Корпоративный сайт</h6>
+                        <small class="text-muted">Веб-дизайн</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-6 col-md-4 gallery-item" data-category="photo">
+                <div class="card h-100">
+                    <img src="https://placeholder.apptor.studio/400/300/camera.png" class="card-img-top" alt="Photo">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-0">Пейзаж</h6>
+                        <small class="text-muted">Фотография</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-6 col-md-4 gallery-item" data-category="graphic">
+                <div class="card h-100">
+                    <img src="https://placeholder.apptor.studio/400/300/vector.png" class="card-img-top" alt="Graphic">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-0">Логотип</h6>
+                        <small class="text-muted">Графика</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-6 col-md-4 gallery-item" data-category="web">
+                <div class="card h-100">
+                    <img src="https://placeholder.apptor.studio/400/300/code.png" class="card-img-top" alt="Web">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-0">Интернет-магазин</h6>
+                        <small class="text-muted">Веб-дизайн</small>
+                    </div>
+                </div>
+            </div>
+             
+             <div class="col-6 col-md-4 gallery-item" data-category="photo">
+                <div class="card h-100">
+                    <img src="https://placeholder.apptor.studio/400/300/portrait.png" class="card-img-top" alt="Photo">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-0">Портрет</h6>
+                        <small class="text-muted">Фотография</small>
+                    </div>
+                </div>
+            </div>
+             
+             <div class="col-6 col-md-4 gallery-item" data-category="graphic">
+                <div class="card h-100">
+                    <img src="https://placeholder.apptor.studio/400/300/illustration.png" class="card-img-top" alt="Graphic">
+                    <div class="card-body p-2">
+                        <h6 class="card-title mb-0">Иконки</h6>
+                        <small class="text-muted">Графика</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function filterGallery(category, btnElement) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.btn-group .btn');
+
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+
+            
+            items.forEach(item => {
+                if (category === 'all' || item.getAttribute('data-category') === category) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
